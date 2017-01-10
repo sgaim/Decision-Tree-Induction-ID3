@@ -3,7 +3,7 @@ Decision Tree Induction from nominal data sets
 
 
 
-## CSV Example: Playing Baseball
+### CSV Example: Playing Baseball
 | Outlook  | Temperature | Humidity | Windy | Play ball | 
 |----------|-------------|----------|-------|-----------| 
 | Rainy    | Hot         | High     | False | No        | 
@@ -20,5 +20,8 @@ Decision Tree Induction from nominal data sets
 | Overcast | Mild        | High     | True  | Yes       | 
 | Overcast | Hot         | Normal   | False | Yes       | 
 | Sunny    | Mild        | High     | True  | No        | 
+
+
+
 
 
