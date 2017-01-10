@@ -8,7 +8,7 @@ pip install numpy
 
 
 
-### CSV Example: Playing Baseball
+### CSV Example: "baseball.csv" file
 | Outlook  | Temperature | Humidity | Windy | Play ball | 
 |----------|-------------|----------|-------|-----------| 
 | Rainy    | Hot         | High     | False | No        | 
@@ -25,6 +25,19 @@ pip install numpy
 | Overcast | Mild        | High     | True  | Yes       | 
 | Overcast | Hot         | Normal   | False | Yes       | 
 | Sunny    | Mild        | High     | True  | No        | 
+
+
+### Example
+In the "ID3.py" file:
+```
+def main():
+	base = info_gain('baseball.csv', delimit = ',', decision_column=4)
+	base.process()
+	base.write_xml('ID3.xml')
+main()
+```
+
+where the "decision_column" parameter is the column index of the target/predictor
 
 
 ### Output: Induced ID3 Tree
