@@ -7,6 +7,7 @@ pip install numpy
 ```
 
 
+
 ### CSV Example: Playing Baseball
 | Outlook  | Temperature | Humidity | Windy | Play ball | 
 |----------|-------------|----------|-------|-----------| 
@@ -52,7 +53,7 @@ pip install numpy
 </ID3>
 
 ```
-Where the 'column-split' tag points at to the next column to look at and the name of each element is the nominal value.
+Where tag 'column-split' points at to the next column to look at and the name of each element is the nominal value.
 
 
 ### Future Work
