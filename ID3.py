@@ -70,7 +70,7 @@ class info_gain:
 			else:
 				current_tree_element.set('Entropy',str(1.0)) #gain tag
 				solution = current_matrix[self.classify_name][0]
-				temp_element = ET.SubElement(current_tree_element,solution)
+				temp_element = ET.SubElement(current_tree_element,str(solution))
 				temp_element.set('type','SOLUTION')
 
 
@@ -124,9 +124,10 @@ class info_gain:
 
 		for keys in temp_frequency:	#creating sub_tables
 			sub_table = t_table[np.where(t_table[temp_name] == keys)]
+			
 			sub_table = sub_table[new_names]
 
-			new_sub = ET.SubElement(parent,keys)
+			new_sub = ET.SubElement(parent,str(keys))
 			new_sub.set('table', sub_table)
 			self.q.enqueue(new_sub) #enqueuing new subelement to further calculate later
 
@@ -148,4 +149,3 @@ def main():
 	base.process()
 	base.write_xml('ID3.xml')
 main()
-
