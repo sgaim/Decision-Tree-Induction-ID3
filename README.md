@@ -1,5 +1,10 @@
 # Decision-Tree-Induction-ID3
-Decision Tree Induction from nominal data sets
+ID3 Decision Tree Induction for nominal data sets. The output is an easily viewable XML tree.
+
+### Dependinces
+```
+pip install numpy
+```
 
 
 
