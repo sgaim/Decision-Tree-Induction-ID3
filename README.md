@@ -1,11 +1,10 @@
-# Decision-Tree-Induction-ID3
+# Decision Tree Induction ID3
 ID3 Decision Tree Induction for nominal data sets. The output is an easily viewable XML tree.
 
 ### Dependinces
 ```
 pip install numpy
 ```
-
 
 
 ### CSV Example: Playing Baseball
@@ -25,6 +24,40 @@ pip install numpy
 | Overcast | Mild        | High     | True  | Yes       | 
 | Overcast | Hot         | Normal   | False | Yes       | 
 | Sunny    | Mild        | High     | True  | No        | 
+
+
+### Output: Induced ID3 Tree
+```
+<?xml version="1.0" ?>
+<ID3 column_split="Outlook" gain="0.2467">
+	<Rainy column_split="Humidity" gain="0.971">
+		<High Entropy="1.0">
+			<No type="SOLUTION"/>
+		</High>
+		<Normal Entropy="1.0">
+			<Yes type="SOLUTION"/>
+		</Normal>
+	</Rainy>
+	<Overcast Entropy="1.0">
+		<Yes type="SOLUTION"/>
+	</Overcast>
+	<Sunny column_split="Windy" gain="0.971">
+		<False Entropy="1.0">
+			<Yes type="SOLUTION"/>
+		</False>
+		<True Entropy="1.0">
+			<No type="SOLUTION"/>
+		</True>
+	</Sunny>
+</ID3>
+
+```
+Where the 'column-split' tag points at to the next column to look at and the name of each element is the nominal value.
+
+
+### Future Work
+Currently, this program only generates a tree, however future implimentation will include a method to test the tree on a testing dataset
+
 
 
 
