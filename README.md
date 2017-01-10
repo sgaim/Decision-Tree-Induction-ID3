@@ -53,7 +53,9 @@ pip install numpy
 </ID3>
 
 ```
-Where tag 'column-split' points at to the next column to look at and the name of each element is the nominal value.
+Where:
+   'column-split' tags:	points to the next column name to look at.
+   'SOLUTION' type: 	value reached once entropy 
 
 
 ### Future Work
