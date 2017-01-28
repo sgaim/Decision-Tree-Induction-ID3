@@ -72,7 +72,7 @@ Where:
 
 
 ### Future Work
-Currently, this program only generates a tree, however future implimentation will include a method to test the tree on a testing dataset
+Currently, this program only generates a tree, however future implimentation will include a method to test the tree on a testing dataset as well as binning of numeric data.
 
 
 
