@@ -1,5 +1,4 @@
 from __future__ import division
-import sys
 import numpy as np
 import math
 import collections
@@ -33,7 +32,7 @@ class info_gain:
 		self.classify_name = self.column_names[self.decision_column]  #the column name to predict/classify
 
 		self.q = Queue() #Queue Instance
-		self.root = ET.Element('ID3')
+		self.root = ET.Element('ROOT')
 
 	def process(self):
 		self.root.set('table', self.my_data)
@@ -70,8 +69,8 @@ class info_gain:
 			else:
 				current_tree_element.set('Entropy',str(1.0)) #gain tag
 				solution = current_matrix[self.classify_name][0]
-				temp_element = ET.SubElement(current_tree_element,str(solution))
-				temp_element.set('type','SOLUTION')
+				temp_element = ET.SubElement(current_tree_element,"LEAF")
+				temp_element.set('answer',str(solution))
 
 
 			
@@ -127,7 +126,8 @@ class info_gain:
 			
 			sub_table = sub_table[new_names]
 
-			new_sub = ET.SubElement(parent,str(keys))
+			new_sub = ET.SubElement(parent,'BRANCH')
+			new_sub.set('value',str(keys))
 			new_sub.set('table', sub_table)
 			self.q.enqueue(new_sub) #enqueuing new subelement to further calculate later
 
@@ -138,14 +138,23 @@ class info_gain:
 		f.write(minidom.parseString(s).toprettyxml()) #write out to file
 		f.close()
 
+	#Bin specified rows into nominal data atributes
+	def binning(self):
+		'Will bin specified rows into numeric atributes'
+
 	#Run the trained tree on test data set.
-	def test_set(self):
-		#####################
-		'Will be implementing a test method'
+	def testing(self, test_data_file):
+		accurate = 0
+		incorrect = 0
+		for row in test_data_file:
+			'Do nothing'
+
 
 
 def main():
-	base = info_gain('baseball.csv', delimit = ',', decision_column=4)
+	base = info_gain('iris_data.csv', delimit = ',', decision_column=4)
 	base.process()
 	base.write_xml('ID3.xml')
+	#base.testing()
 main()
+
